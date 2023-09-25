@@ -1,5 +1,8 @@
 # Molecular-Dynamics-A-program
-#: A Program
-The best introduction to Molecular Dynamics simulations is to consider a
-simple program. The program we consider is kept as simple as possible to
-illustrate a number of important features of Molecular Dynamics 
+The program that is portrayed here forms one of the best introduction to a molecular dynamics simulation problem, which illustrates a number of important features.
+The program is constructed as follows:
+1. We read in the parameters that specify the conditions of the run (e.g.,initial temperature, number of particles, density, time step). 
+2. We initialize the system (i.e., we select initial positions and velocities).The particles of the simulation setup was positioned in the structure of a FCC lattice, so that they don't result in an appreciable overlap of the atomic or molecular cores.First, we put each particle on its lattice site and then we attribute to each velocity component of every particle a value that is drawn from a uniform distribution. This initial velocity distribution is Maxwellian neither in shape nor even in width. Subsequently, we shift all velocities, such that the total momentum is zero and we scale the resulting velocities to adjust the mean kinetic energy to the desired value.
+3. We compute the forces on all particles. We have used the periodic boundary conditions, like the Monte-Carlo case, to compute the force field defined by the Lennard-Jones system.
+4. We integrate Newton’s equations of motion. This step and the previous one make up the core of the simulation. They are repeated until we have computed the time evolution of the system for the desired length of time. In the program, we have used the "Verlet" Algorithm to compute the trajectories.
+5. After completion of the central loop, we compute and print the averages of measured quantities, and stop. 
